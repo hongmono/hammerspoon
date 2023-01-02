@@ -7,14 +7,14 @@ remapper:register()
 do  -- input sorce changer
     local inputSource = {
         english = "com.apple.keylayout.ABC",
-        korean = "com.apple.inputmethod.Korean.2SetKorean",
+        korean = "org.youknowone.inputmethod.Gureum.han2",
     }
 
     local changeInput = function()
-
         local current = hs.keycodes.currentSourceID()
         local nextInput = nil
-
+        print(current)
+        
         if current == inputSource.english then
             nextInput = inputSource.korean
         else
@@ -31,9 +31,6 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "R",
         hs.reload()
     end
 )
-
-HoldToQuit = hs.loadSpoon("HoldToQuit")
-HoldToQuit:start()
 
 HCalendar = hs.loadSpoon("HCalendar")
 HCalendar:start()
